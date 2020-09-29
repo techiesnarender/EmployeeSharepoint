@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://smalsusinfolabs.sharepoint.com/sites/Training/Style%20Library/AngularJs/Narender%20Singh/Restapi.js"></script>
+
+    <style type="text/css"></style>
+  </head>
+
+  <div ng-app="myPage">
+    <div ng-controller="showData">
+      <!--View all list Item-->
+      <table id="employeeTable" border="2px">
+        <tr>
+          <th>Employee id</th>
+          <th>Employee Name</th>
+          <th>Designation</th>
+          <th>Salary</th>
+          <th>Date of Joining</th>
+          <th>Action</th>
+        </tr>
+
+        <tr ng-repeat="item in employee">
+          <td>{{item.ID}}</td>
+          <td>{{item.Emp_Name}}</td>
+          <td>{{item.Designation}}</td>
+          <td>{{item.Salary}}</td>
+          <td>{{item.DOJ}}</td>
+          <td>
+            <button type="button" ng-click="deleteController(item.ID)">
+              Delete
+            </button>
+            <button type="button" ng-click="EditController(item.ID)">
+              Edit Employee
+            </button>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Create Employee Table-->
+      <h3>Add Employee</h3>
+      <hr />
+      <table>
+        <!-- <tr>
+          <td>Employee ID</td>
+          <td><input type="text" id="emp_id" ng-model="Title" /></td>
+        </tr> -->
+        <tr>
+          <td>Employee Name</td>
+          <td><input type="text" id="emp_name" ng-model="Emp_Name" /></td>
+        </tr>
+        <tr>
+          <td>Employee Designation</td>
+          <td><input type="text" id="designation" ng-model="Designation" /></td>
+        </tr>
+        <tr>
+          <td>Employee Salary</td>
+          <td><input type="text" id="salary" ng-model="Salary" /></td>
+        </tr>
+        <tr>
+          <td>Employee DOJ</td>
+          <td><input type="date" id="doj" ng-model="DOJ" /></td>
+        </tr>
+
+        <tr>
+          <td>
+            <input
+              type="button"
+              id="btnAddEmployee"
+              value="Add Employee"
+              ng-click="addEmployee()"
+            />
+          </td>
+        </tr>
+      </table>
+      <hr />
+
+      <!-- Create Employee Table-->
+      <h3>Edit Employee</h3>
+      <hr />
+      <table>
+        <!-- <tr>
+            <td>Employee ID</td>
+            <td><input type="text" id="emp_id" ng-model="Title" /></td>
+          </tr> -->
+        <tr>
+          <td>Employee Name</td>
+          <td><input type="text" id="emp_name" ng-model="Emp_Name" /></td>
+        </tr>
+        <tr>
+          <td>Employee Designation</td>
+          <td><input type="text" id="designation" ng-model="Designation" /></td>
+        </tr>
+        <tr>
+          <td>Employee Salary</td>
+          <td><input type="text" id="salary" ng-model="Salary" /></td>
+        </tr>
+        <tr>
+          <td>Employee DOJ</td>
+          <td><input type="date" id="doj" ng-model="DOJ" /></td>
+        </tr>
+
+        <tr>
+          <td>
+            <input
+              type="button"
+              id="btnEditEmployee"
+              value="Edit Employee"
+              ng-click="editEmployee()"
+            />
+          </td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+  </div>
+</html>
